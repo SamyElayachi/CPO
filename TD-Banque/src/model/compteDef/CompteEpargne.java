@@ -1,4 +1,4 @@
-package model.compteDef;
+package model.comptedef;
 
 /**
 * Model a check account
@@ -18,7 +18,7 @@ public final class CompteEpargne extends CompteImp {
 		this.minimumBalance = 50;
 	} 
 	
-	public int getMiniummBalance() { return this.minimumBalance; }
+	public int getMiniumumBalance() { return this.minimumBalance; }
 
 	@Override
 	public double withdraw(double amount){

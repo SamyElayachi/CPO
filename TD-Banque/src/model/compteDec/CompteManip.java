@@ -1,9 +1,6 @@
-package model.compteDec;
+package model.comptedec;
+import model.exceptions.InsufficientBalance;
 
-
-public interface CompteManip extends Compte{
-
-	public abstract double withdraw(double amount);
-
-
+public interface CompteManip extends Compte {
+	double withdraw(double amount) throws InsufficientBalance;
 }

@@ -1,4 +1,4 @@
-package model.compteDef;
+package model.comptedef;
 
 import java.util.Calendar;
 

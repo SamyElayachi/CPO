@@ -1,13 +1,9 @@
-package model.compteDec;
-
+package model.comptedec;
 
 public interface Compte {
-
-	public String getOwner();
-	public String getNum();
-	public double getBalance();
-	public void setBalance(double newBalance);
-	public abstract double deposit(double amount);
-
-
+	String getOwner();
+	String getNum();
+	double getBalance();
+	void setBalance(double newBalance);
+	double deposit(double amount);
 }

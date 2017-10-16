@@ -1,12 +1,17 @@
-package model.compteDef;
+package model.comptedef;
 
-import model.compteDec.CompteManip;
+import java.util.logging.Logger;
+
+import model.comptedec.CompteManip;
+import model.exceptions.InsufficientBalance;
 
 /**
 * Model a check account
 */
 
-public final class CompteCourant extends CompteImp {
+public final class CompteCourant extends CompteImp implements CompteManip {
+
+	private static final Logger LOG = Logger.getLogger(CompteCourant.class.getCanonicalName());
 	
 	private int overdraft; //découvert
 
@@ -35,11 +40,17 @@ public final class CompteCourant extends CompteImp {
 	public void setOverdraft(int newOverdraft) { this.overdraft = newOverdraft; }
 
 	@Override
-	public double withdraw(double amount){
+	public double withdraw(double amount) throws InsufficientBalance {
 		double previous = this.getBalance();
-		if(previous - amount > 0 - this.overdraft) {
-			this.setBalance(previous - amount);
+		try{
+			if(previous - amount < 0) 
+			throw new InsufficientBalance("Overdraft. Current balance =" +previous);
+		} catch (InsufficientBalance ex){
+			LOG.severe("overdraft of "+ amount + "on account with balance "+ previous);
+			throw ex;
 		}
+		
+		this.setBalance(previous - amount);
 		return this.getBalance();
 	}
 
