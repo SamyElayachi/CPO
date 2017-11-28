@@ -1,4 +1,5 @@
 cd TD-Banque/src
 rm -rf bin
 mkdir -p bin
-javac main/Main.java ../bin/
+cd src/
+javac main/Main.java -d ../bin/
