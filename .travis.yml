@@ -3,7 +3,10 @@ jdk:
   - oraclejdk8
   - oraclejdk9
 
-script: mvn clean package
+before_install:
+  -chmod 755 ./compile.sh
+script: 
+  -"./build.sh"
 
 cache:
   directories:
