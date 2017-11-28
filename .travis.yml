@@ -5,8 +5,9 @@ jdk:
 
 before_install:
   - chmod 755 ./compile.sh
+  
 script: 
-  - './build.sh'
+  - ./build.sh
 
 cache:
   directories:
